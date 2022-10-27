@@ -8,8 +8,8 @@ A GCN-based deep learning framework for enzyme function prediction
 Prediction of AlphaFold-2-predicted structures can be downloaded from:
 
 Catalytic sites prediction of AF structures
-TP Cases: EC-Graph predictions match existing UniProt Annotations
-FP Cases: These are proposed EC annotations by EC-Graph
+*TP Cases: EC-Graph predictions match existing UniProt Annotations
+*FP Cases: These are proposed EC annotations by EC-Graph
 
 | Type | Species | TP Cases | FP Cases |
 | --- | --- | --- | --- |
@@ -66,3 +66,10 @@ FP Cases: These are proposed EC annotations by EC-Graph
 | Swiss-Prot | Swiss-Prot Batch 2 (swissprot_s2) | [swissprot_s2_tp](https://drive.google.com/file/d/1PgEkCD_vIc5IKYAxpjISdqkVp9tM0iit/view?usp=sharing) | [swissprot_s2_fp](https://drive.google.com/file/d/1Ryus6bL5fmQGQ_-6zgapkICQyGChZMLY/view?usp=sharing) |
 | Swiss-Prot | Swiss-Prot Batch 3 (swissprot_s3) | [swissprot_s3_tp](https://drive.google.com/file/d/1SaO4MsrX6wEXk62KU3dCmMq-5eW_Tylp/view?usp=sharing) | [swissprot_s3_fp](https://drive.google.com/file/d/1Sv5Z96Bctab3HYvgNatNhTQ-IZpjd0Xd/view?usp=sharing) |
 | Swiss-Prot | Swiss-Prot Batch 4 (swissprot_s4) | [swissprot_s4_tp](https://drive.google.com/file/d/1S3yeyijejfA5lVLVfiMgSbNpiawEFLbE/view?usp=sharing) | [swissprot_s4_fp](https://drive.google.com/file/d/1PnGcwTIsfuq8br0fYkDSMs1-xX2RRhm5/view?usp=sharing) |
+
+
+
+# Pretrained models
+
+Pretrained models are available here:
+[Models]()
