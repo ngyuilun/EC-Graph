@@ -12,7 +12,8 @@ TP Cases: EC-Graph predictions match existing UniProt Annotations
 FP Cases: These are proposed EC annotations by EC-Graph
 
 | Type | Species | TP Cases | FP Cases |
-| --- | --- | --- | --- || Model Organism Proteomes | Arabidopsis thaliana (arath) | [arath_tp](https://drive.google.com/file/d/1Sp2n9hhEHJ_t3cHdATUG5jGr2XEoru6B/view?usp=sharing) | [arath_fp](https://drive.google.com/file/d/1R0f-DTKQHgGDNlRzFphFH_WPfLacCUSq/view?usp=sharing) |
+| --- | --- | --- | --- |
+| Model Organism Proteomes | Arabidopsis thaliana (arath) | [arath_tp](https://drive.google.com/file/d/1Sp2n9hhEHJ_t3cHdATUG5jGr2XEoru6B/view?usp=sharing) | [arath_fp](https://drive.google.com/file/d/1R0f-DTKQHgGDNlRzFphFH_WPfLacCUSq/view?usp=sharing) |
 | Model Organism Proteomes | Caenorhabditis elegans (caeel) | [caeel_tp](https://drive.google.com/file/d/1R6aokA3P5aB9o2lhTyyfMd11ipyZcagz/view?usp=sharing) | [caeel_fp](https://drive.google.com/file/d/1Q5FBP-ThSEMQ9sqXrP8pKTdym3Gw5N1u/view?usp=sharing) |
 | Model Organism Proteomes | Candida albicans (canal) | [canal_tp](https://drive.google.com/file/d/1R03E6M092uKAKlAcQ3e1DXij_s0foxRc/view?usp=sharing) | [canal_fp](https://drive.google.com/file/d/1PzRTT4TQt_QAwoScAnAnflt7bQG56hcj/view?usp=sharing) |
 | Model Organism Proteomes | Danio rerio (danre) | [danre_tp](https://drive.google.com/file/d/1QsqJiLZTTdM1Q0m_-vb1rIg8EvGY8HJW/view?usp=sharing) | [danre_fp](https://drive.google.com/file/d/1SiNsB1ztXLw1aRk7_oEIUwmA9n8qUTwp/view?usp=sharing) |
