@@ -1,15 +1,15 @@
-# EC-Graph
+### EC-Graph
 A GCN-based deep learning framework for enzyme function prediction
 
 
 
 
-# Predictions
+### Predictions
 Prediction of AlphaFold-2-predicted structures can be downloaded from:
 
-Catalytic sites prediction of AF structures
-*TP Cases: EC-Graph predictions match existing UniProt Annotations
-*FP Cases: These are proposed EC annotations by EC-Graph
+Catalytic sites prediction of AF structures.
+* TP Cases: EC-Graph predictions match existing UniProt Annotations
+* FP Cases: These are proposed EC annotations by EC-Graph
 
 | Type | Species | TP Cases | FP Cases |
 | --- | --- | --- | --- |
@@ -69,7 +69,7 @@ Catalytic sites prediction of AF structures
 
 
 
-# Pretrained models
+### Pretrained models
 
 Pretrained models are available here:
 [Models]()
