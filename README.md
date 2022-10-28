@@ -3,6 +3,20 @@ A GCN-based deep learning framework for enzyme function prediction
 
 
 
+### Dependencies
+EC-Graph is based on python 3.8.12 and PyTorch-1.8.0
+
+The required dependencies are in:
+```
+pip install -r requirements.txt
+```
+
+### EC number prediction and catalytic site prediction
+Download the target PDB structures (.pdb) and place it in folder 'data'
+```
+python predict.py
+```
+
 
 ### Predictions
 Prediction of AlphaFold-2-predicted structures can be downloaded from:
