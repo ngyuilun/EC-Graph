@@ -86,4 +86,7 @@ Catalytic sites prediction of AF structures.
 ### Pretrained models
 
 Pretrained models are available here:
-[Models]()
+[Models](https://drive.google.com/file/d/1YOQlELaQNxd1HHWCXx_sEDKo7Fo1l7te/view?usp=sharing)
+
+1. Uncompress the model.tar.gz 
+2. Move the models to the /models/ directory
