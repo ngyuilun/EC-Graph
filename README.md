@@ -1,5 +1,5 @@
 ### EC-Graph
-A GCN-based deep learning framework for enzyme function prediction
+Enzyme function prediction with GCN-based deep learning framework 
 
 
 
