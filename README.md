@@ -11,6 +11,16 @@ The required dependencies are in:
 pip install -r requirements.txt
 ```
 
+
+### Pretrained models
+
+Pretrained models are available here:
+[Models](https://drive.google.com/file/d/1YOQlELaQNxd1HHWCXx_sEDKo7Fo1l7te/view?usp=sharing)
+
+1. Uncompress the model.tar.gz 
+2. Move the models to the /models/ directory
+
+
 ### EC number prediction and catalytic site prediction
 Download the target PDB structures (.pdb) and place it in folder 'data'
 ```
@@ -18,7 +28,16 @@ python predict.py
 ```
 
 
-### Predictions
+
+
+
+### Catalytic site prediction
+<img src="figures/2JCW_A.svg">
+
+
+
+
+### Predictions of AlphaFold-2-predicted structures
 Prediction of AlphaFold-2-predicted structures can be downloaded from:
 
 Catalytic sites prediction of AF structures.
@@ -81,12 +100,3 @@ Catalytic sites prediction of AF structures.
 | Swiss-Prot | Swiss-Prot Batch 3 (swissprot_s3) | [swissprot_s3_tp](https://drive.google.com/file/d/1SaO4MsrX6wEXk62KU3dCmMq-5eW_Tylp/view?usp=sharing) | [swissprot_s3_fp](https://drive.google.com/file/d/1Sv5Z96Bctab3HYvgNatNhTQ-IZpjd0Xd/view?usp=sharing) |
 | Swiss-Prot | Swiss-Prot Batch 4 (swissprot_s4) | [swissprot_s4_tp](https://drive.google.com/file/d/1S3yeyijejfA5lVLVfiMgSbNpiawEFLbE/view?usp=sharing) | [swissprot_s4_fp](https://drive.google.com/file/d/1PnGcwTIsfuq8br0fYkDSMs1-xX2RRhm5/view?usp=sharing) |
 
-
-
-### Pretrained models
-
-Pretrained models are available here:
-[Models](https://drive.google.com/file/d/1YOQlELaQNxd1HHWCXx_sEDKo7Fo1l7te/view?usp=sharing)
-
-1. Uncompress the model.tar.gz 
-2. Move the models to the /models/ directory
