@@ -32,9 +32,20 @@ python predict.py
 
 
 ### Catalytic site prediction
+The model-predicted catalytic residues can be found here. Based on the protein amino acid length, we highlight the top 10% residues as model-predicted catalytic residues and illustrate the results with M-CSA dataset/UniProtKB database.
+* Red: Top 5%
+* Orange: Top 5%-10%
+Example PDB [2JCW_A](https://www.rcsb.org/structure/2jcw)
+
+Prediction by amino acid positions: 2JCW_A.svg
 <img src="figures/2JCW_A.svg">
 
+Prediction by structural illustration: 2JCW_A.cxc
+* Can be visualized via the [UCSF ChimeraX software](https://www.cgl.ucsf.edu/chimerax/)
 
+<img src="figures/2JCW_A.png">
+
+* This cxc files can be downloaded from /figures/2JCW_A_mcsa.cxc
 
 
 ### Predictions of AlphaFold-2-predicted structures
