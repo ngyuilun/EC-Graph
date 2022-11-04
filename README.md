@@ -1,9 +1,9 @@
-### EC-Graph
+## EC-Graph
 Enzyme function prediction with GCN-based deep learning framework 
 
 
 
-### Dependencies
+## Dependencies
 EC-Graph is based on python 3.8.12 and PyTorch-1.8.0
 
 The required dependencies are in:
@@ -12,7 +12,7 @@ pip install -r requirements.txt
 ```
 
 
-### Pretrained models
+## Pretrained models
 
 Pretrained models are available here:
 [Models](https://drive.google.com/file/d/1YOQlELaQNxd1HHWCXx_sEDKo7Fo1l7te/view?usp=sharing)
@@ -21,7 +21,7 @@ Pretrained models are available here:
 2. Move the models to the /models/ directory
 
 
-### EC number prediction and catalytic site prediction
+## EC number prediction and catalytic site prediction
 Download the target PDB structures (.pdb) and place it in folder 'data'
 ```
 python predict.py
@@ -31,12 +31,12 @@ python predict.py
 
 
 
-### Catalytic site prediction
+## Catalytic site prediction
 The model-predicted catalytic residues can be found here. Based on the protein amino acid length, we highlight the top 10% residues as model-predicted catalytic residues and illustrate the results with M-CSA dataset/UniProtKB database.
 * Red: Top 5%
 * Orange: Top 5%-10%
 
-# Example PDB [2JCW_A](https://www.rcsb.org/structure/2jcw)
+### Example PDB [2JCW_A](https://www.rcsb.org/structure/2jcw)
 
 Prediction by amino acid positions: 2JCW_A.svg
 <img src="figures/2JCW_A.svg">
@@ -49,7 +49,7 @@ Prediction by structural illustration: 2JCW_A.cxc
 * This cxc files can be downloaded at /figures/2JCW_A_mcsa.cxc
 
 
-### Predictions of AlphaFold-2-predicted structures
+## Predictions of AlphaFold-2-predicted structures
 Prediction of AlphaFold-2-predicted structures can be downloaded from:
 
 Catalytic sites prediction of AF structures.
