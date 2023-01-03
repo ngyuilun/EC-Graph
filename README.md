@@ -112,3 +112,5 @@ Catalytic sites prediction of AF structures.
 | Swiss-Prot | Swiss-Prot Batch 3 (swissprot_s3) | [swissprot_s3_tp](https://drive.google.com/file/d/1SaO4MsrX6wEXk62KU3dCmMq-5eW_Tylp/view?usp=sharing) | [swissprot_s3_fp](https://drive.google.com/file/d/1Sv5Z96Bctab3HYvgNatNhTQ-IZpjd0Xd/view?usp=sharing) |
 | Swiss-Prot | Swiss-Prot Batch 4 (swissprot_s4) | [swissprot_s4_tp](https://drive.google.com/file/d/1S3yeyijejfA5lVLVfiMgSbNpiawEFLbE/view?usp=sharing) | [swissprot_s4_fp](https://drive.google.com/file/d/1PnGcwTIsfuq8br0fYkDSMs1-xX2RRhm5/view?usp=sharing) |
 
+We are currently developing a website interface for visualization of the EC sub-subclass prediction and catalytic sites prediction results. Please stay tuned.
+
