@@ -28,7 +28,11 @@ from collections import Counter
 from scipy.sparse import csr_matrix, triu
 from scipy.spatial import distance_matrix
 from scipy.sparse import coo_matrix
-
+import re
+import matplotlib
+from sklearn.preprocessing import minmax_scale
+import math
+import matplotlib.pyplot as plt
 import numpy as np
 from model import *
 

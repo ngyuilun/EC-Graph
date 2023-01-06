@@ -1,7 +1,9 @@
 ## EC-Graph
 Enzyme function prediction with GCN-based deep learning framework 
 
-
+## Google Colab Notebook for EC number prediction and catalytic site prediction
+# News: The EC-Graph is now available on Google Colab Notebook for online prediction.
+[Google Colab Notebook](https://colab.research.google.com/drive/1ypL-7IM25ol5XaaBnxYQKw6QLGV7j4aq)
 
 ## Dependencies
 EC-Graph is based on python 3.8.12 and PyTorch-1.8.0
