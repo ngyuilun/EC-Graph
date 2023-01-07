@@ -17,15 +17,13 @@ pip install -r requirements.txt
 
 ## Pretrained models and UniProt Annotations
 
-Pretrained models are available here:
-
+Pretrained models are available here: 
 [Models](https://drive.google.com/file/d/1YOQlELaQNxd1HHWCXx_sEDKo7Fo1l7te/view?usp=sharing)
 
 1. Uncompress the model.tar.gz 
 2. Move the models to the /models/.
 
-An aggregated version of UniProt catalytic sites annotations are available here:
-
+An aggregated version of UniProt catalytic sites annotations are available here: 
 [UniProt Annotations](https://www.dropbox.com/s/w5kg9k5g2ocg0su/uniprot_sites.pkl)
 
 1. Move the UniProt Annotations to the /excel/uniprot_sites.pkl
