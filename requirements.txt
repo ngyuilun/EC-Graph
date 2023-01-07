@@ -3,12 +3,6 @@ openpyxl==3.0.9
 pandas==1.5.0
 scikit-learn==0.24.2
 scipy==1.8.0
-torch==1.8.0
-torch-cluster==1.5.9 -f https://data.pyg.org/whl/torch-1.8.0+cpu.html
-torch-scatter==2.0.8 -f https://data.pyg.org/whl/torch-1.8.0+cpu.html
-torch-sparse==0.6.12 -f https://data.pyg.org/whl/torch-1.8.0+cpu.html
-torch-spline-conv==1.2.1 -f https://data.pyg.org/whl/torch-1.8.0+cpu.html
-torch-geometric==2.0.1 
 tqdm==4.51.0
 biopython==1.79
 scikit-image==0.19.1
@@ -16,6 +10,13 @@ seaborn==0.11.2
 strsimpy==0.2.1
 torchelastic==0.2.2
 torchtext==0.9.0
-torchvision==0.9.0
 xlrd==1.2.0
 XlsxWriter==3.0.3
+torch==1.8.0+cpu  -f https://download.pytorch.org/whl/torch_stable.html
+torchvision==0.9.0+cpu  -f https://download.pytorch.org/whl/torch_stable.html
+torchaudio==0.8.0   -f https://download.pytorch.org/whl/torch_stable.html
+torch-cluster==1.5.9 -f https://pytorch-geometric.com/whl/torch-1.8.0+cpu.html
+torch-scatter==2.0.8 -f https://pytorch-geometric.com/whl/torch-1.8.0+cpu.html
+torch-sparse==0.6.12 -f https://pytorch-geometric.com/whl/torch-1.8.0+cpu.html
+torch-spline-conv==1.2.1 -f https://pytorch-geometric.com/whl/torch-1.8.0+cpu.html
+torch-geometric==2.0.1 
