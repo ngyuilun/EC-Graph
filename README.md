@@ -23,7 +23,7 @@ Pretrained models are available here:
 1. Uncompress the model.tar.gz 
 2. Move the models to the /models/.
 
-Catalytic sites annotations in UniProt are available here:
+An aggregated version of UniProt catalytic sites annotations are available here:
 [UniProt Annotations](https://www.dropbox.com/s/w5kg9k5g2ocg0su/uniprot_sites.pkl)
 
 1. Move the UniProt Annotations to the /excel/uniprot_sites.pkl
