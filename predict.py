@@ -1,4 +1,4 @@
-#@title 5. Run Prediction
+
 import os
 import json
 import sys
@@ -41,9 +41,6 @@ import datetime
 os.umask(0)
 from sklearn.preprocessing import MinMaxScaler
 
-
-Task_Name = 'Task 1' # folder name in /data
-PDB_Type = 'pdb' # 'pdb' if they are strcutures from Protein Data Bank, 'af2' if they are AlphaFold 2-predicted structures
 
 
 def load_pdb_data(args,bs):
@@ -239,10 +236,16 @@ def draw_prediction(d_config,weights,df_uniprot_sites, df_mcsa_data):
         'PYL':'O',}
 
 
-    l_colors = ['#ced4da','#fff292','#fd6104','#CC0000']
+
     
-    cmap = (matplotlib.colors.ListedColormap(l_colors))
+    l_colors = ['#ced4da','#fd6104','#CC0000']
+    l_colors_1 = [l_colors[0]]*18+[l_colors[1]]+[l_colors[2]]
+
+    
+    cmap = (matplotlib.colors.ListedColormap(l_colors_1))
     cmap.set_under('#FFFFFF')
+
+
 
     pdb_atom_format_field = [(1, 6, '"ATOM"'),
                                     (7, 11, 'serial'),
@@ -368,28 +371,29 @@ def draw_prediction(d_config,weights,df_uniprot_sites, df_mcsa_data):
     df_1['weights'] = weights
 
     top_n = math.ceil(len(weights)*0.05)
+    # weights[np.argpartition(weights,-top_n)][-top_n:]
     top_x = weights[np.argsort(weights)[-top_n:]][0]
     top_x1 = max(top_x,1e-99)
 
+
     top_n = math.ceil(len(weights)*0.1)
+    # weights[np.argpartition(weights,-top_n)][-top_n:]
     top_x = weights[np.argsort(weights)[-top_n:]][0]
     top_x2 = max(top_x,1e-99)
 
-    top_n = math.ceil(len(weights)*0.15)
-    top_x = weights[np.argsort(weights)[-top_n:]][0]
-    top_x3 = max(top_x,1e-99)
 
-    def f_weights(x,top_x1,top_x2,top_x3):
+
+    def f_weights(x,top_x1,top_x2):
         if x >= top_x1:
-            return 0.75
+            return 0.95
         elif x >= top_x2:
-            return 0.5
-        elif x >= top_x3:
-            return 0.25
+            return 0.9
         else:
             return 0
 
-    df_1['weights'] = df_1['weights'].apply(lambda x: f_weights(x,top_x1,top_x2,top_x3))
+
+    df_1['weights'] = df_1['weights'].apply(lambda x: f_weights(x,top_x1,top_x2))
+    
     
     df_1['resName_s'] = df_1['resName'].apply(lambda x:f_amino_acid(x))
 
@@ -437,6 +441,9 @@ def draw_prediction(d_config,weights,df_uniprot_sites, df_mcsa_data):
 
     df_2.to_excel(path_output_img+'/'+pdb_name+'_weights.xlsx')
 
+
+
+
     # Draw
     for chain_id_s in set(df_1['chainID'].to_list()):
         df_1_s = df_1[df_1['chainID'] == chain_id_s].copy()
@@ -450,8 +457,8 @@ def draw_prediction(d_config,weights,df_uniprot_sites, df_mcsa_data):
         text += 'set bgColor white\n'
         text += 'hide atoms\n'
         
-        text += "2dlab text 'Grad-CAM Weights' size 20 xpos .53 ypos .15\n"
-        text += "key  "+l_colors[3]+": "+l_colors[2]+":  "+l_colors[1]+": "+l_colors[0]+": pos .51,.12 size .32,.02 colorTreatment distinct  numericLabelSpacing  proportional \n"
+        text += "2dlab text 'Grad-CAM Weights (Top n%)' size 20 xpos .53 ypos .15\n"
+        text += "key  "+l_colors[2]+":  "+l_colors[1]+": "+l_colors[0]+": pos .51,.12 size .32,.02 colorTreatment distinct  numericLabelSpacing  proportional \n"
         text += "2dlab text '0%' size 18 x 0.50 y .08; 2dlab text '5%' size 18 x .61 y .08; 2dlab text '10%' size 18 x .71 y .08; ; 2dlab text '100%' size 18 x .81 y .08; 2dlab text '...' size 18 x .77 y .09;\n"
 
         for chain_id_s1  in set(df_1['chainID'].to_list()):
@@ -464,19 +471,20 @@ def draw_prediction(d_config,weights,df_uniprot_sites, df_mcsa_data):
             for index,row in df_1_s[df_1_s['weights'] == weights_s].iterrows():
                 text_aa += '/'+row['chainID']+':'+str(row['resSeq'])+' '
             text += 'color '+text_aa+' '+matplotlib.colors.to_hex(cmap(weights_s))+'\n'
-
-
+            
         for index,row in df_mcsa_data_2.iterrows():
             
             text += 'show /'+str(row['chainID'])+':'+str(row['resSeq'])+' atoms\n'
-            # break
             if row['weights'] >= 0.5:
                 text += 'shape sphere radius 2 center /'+str(row['chainID'])+':'+str(row['resSeq'])+' color #F8CBAD60\n'
             else:
                 text += 'shape sphere radius 2 center /'+str(row['chainID'])+':'+str(row['resSeq'])+' color #d7e5f860\n'
 
+
         with open(path_output_img+pdb_name_s+'_'+chain_id_s+'_mcsa.cxc','w') as f1:
             f1.writelines(text)
+
+
 
 
 
@@ -493,12 +501,14 @@ def draw_prediction(d_config,weights,df_uniprot_sites, df_mcsa_data):
         if d_config['type']=='af2':
             text = 'alphafold fetch '+pdb_name_s.split('-')[0]+'\n'
 
+
         text += 'set bgColor white\n'
         text += 'hide atoms\n'
-
-        text += "2dlab text 'Grad-CAM Weights' size 20 xpos .53 ypos .15\n"
-        text += "key  "+l_colors[0]+": "+l_colors[1]+":  "+l_colors[2]+": "+l_colors[3]+": pos .51,.12 size .32,.02 colorTreatment distinct  numericLabelSpacing  proportional \n"
+        
+        text += "2dlab text 'Grad-CAM Weights (Top n%)' size 20 xpos .53 ypos .15\n"
+        text += "key  "+l_colors[2]+":  "+l_colors[1]+": "+l_colors[0]+": pos .51,.12 size .32,.02 colorTreatment distinct  numericLabelSpacing  proportional \n"
         text += "2dlab text '0%' size 18 x 0.50 y .08; 2dlab text '5%' size 18 x .61 y .08; 2dlab text '10%' size 18 x .71 y .08; ; 2dlab text '100%' size 18 x .81 y .08; 2dlab text '...' size 18 x .77 y .09;\n"
+
 
 
         for chain_id_s1  in set(df_1['chainID'].to_list()):
@@ -512,7 +522,6 @@ def draw_prediction(d_config,weights,df_uniprot_sites, df_mcsa_data):
                 text_aa += '/'+row['chainID']+':'+str(row['resSeq'])+' '
             text += 'color '+text_aa+' '+matplotlib.colors.to_hex(cmap(weights_s))+'\n'
 
-
         for index,row in df_uniprot_sites_data_1_s.iterrows():
             text += 'show /'+str(row['chainID'])+':'+str(row['resSeq'])+' atoms\n'
             if row['weights'] >= 0.5:
@@ -520,13 +529,13 @@ def draw_prediction(d_config,weights,df_uniprot_sites, df_mcsa_data):
             else:
                 text += 'shape sphere radius 2 center /'+str(row['chainID'])+':'+str(row['resSeq'])+' color #d7e5f860\n'
 
+
+
         with open(path_output_img+pdb_name_s+'_'+chain_id_s+'_uniprot_sites.cxc','w') as f1:
             f1.writelines(text)
     
-
-
-
-    for chain_id_s in set(df_1['chainID'].to_list()):
+    
+    for chain_id_s in set(df_2['chainID'].to_list()):
         df_1_s = df_2[df_2['chainID']==chain_id_s].copy()
         df_1_s['n'] = df_1_s['resSeq_uniprot'].apply(f_1)
         if df_1_s.iloc[0]['resSeq_uniprot']%10 < 9:
@@ -558,11 +567,14 @@ def draw_prediction(d_config,weights,df_uniprot_sites, df_mcsa_data):
             df_ref = df_ref.rename({0:'resSeq_ref'},axis=1)
             df_1_s_3 = df_ref.merge(df_1_s_2,how='left',left_on='resSeq_ref',right_on='resSeq_uniprot')
             df_1_s_3['weights'] = df_1_s_3['weights'].fillna(-1)
-            weights_s = df_1_s_3['weights'].to_numpy()
+            weights_s = df_1_s_3['weights'].to_numpy()+0.0001
+            
             extent = [0,100,0,0.6]
 
-
+            
+            
             ax.imshow(weights_s[np.newaxis,:],cmap=cmap,norm=matplotlib.colors.Normalize(vmin=0, vmax=1), aspect="auto", extent=extent)
+
 
             ax.set_yticks([])
             
@@ -608,8 +620,8 @@ if 1:
 
 
     parser = ArgumentParser()
-    parser.add_argument("-s", "--task_name", dest="task_name",default='example')
-    parser.add_argument("-t", "--target_type", dest="type",default='pdb',help='pdb or af2')
+    parser.add_argument("-s", "--task_name", dest="task_name",default='Task 1')
+    parser.add_argument("-t", "--target_type", dest="target_type",default='pdb',help='pdb or af2')
     
 
     if '-f' in sys.argv or '--ip=127.0.0.1' in sys.argv:
@@ -617,8 +629,7 @@ if 1:
     else:
         args = parser.parse_args()
       
-    args.task_name = Task_Name
-    args.target_type = PDB_Type
+      
     args.target_source = './data/'+args.task_name
     
 

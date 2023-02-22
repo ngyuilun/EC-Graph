@@ -9,8 +9,16 @@ The EC-Graph is now available on Google Colab Notebook for online prediction.
 ## Dependencies
 EC-Graph is based on python 3.8.12 and PyTorch-1.8.0
 
-The required dependencies are in:
+Use the following code to install the required packages:
 ```
+pip install torch==1.8.0+cpu torchvision==0.9.0+cpu torchaudio==0.8.0 -f https://download.pytorch.org/whl/torch_stable.html
+
+pip install torch-cluster==1.5.9 -f https://pytorch-geometric.com/whl/torch-1.8.0+cpu.html
+pip install torch-scatter==2.0.8 -f https://pytorch-geometric.com/whl/torch-1.8.0+cpu.html
+pip install torch-sparse==0.6.12 -f https://pytorch-geometric.com/whl/torch-1.8.0+cpu.html
+pip install torch-spline-conv==1.2.1 -f https://pytorch-geometric.com/whl/torch-1.8.0+cpu.html
+pip install torch-geometric==2.0.1
+
 pip install -r requirements.txt
 ```
 
@@ -34,6 +42,16 @@ Download the target PDB structures (.pdb) and place it in folder 'data'
 ```
 python predict.py
 ```
+# Examples:
+To predict PDB structures under the folder 'Task 1'
+```
+python .\predict.py --task_name "Task 1" --target_type pdb
+```
+
+To predict AlphaFold 2-predicted structures under the folder 'Task 2'
+```
+python .\predict.py --task_name "Task 2" --target_type af2
+```
 
 
 
@@ -41,6 +59,8 @@ python predict.py
 The model-predicted catalytic residues can be found here. Based on the protein amino acid length, we highlight the top 10% residues as model-predicted catalytic residues and illustrate the results with M-CSA dataset/UniProtKB database.
 * Red: Top 5%
 * Orange: Top 5%-10%
+* <img src="figures/ec-mcsa.png">: MCSA annotations
+* <img src="figures/ec-uniprot.png">: UniProt annotations
 
 ### Example PDB [2JCW_A](https://www.rcsb.org/structure/2jcw)
 
