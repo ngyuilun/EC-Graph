@@ -59,8 +59,8 @@ python .\predict.py --task_name "Task 2" --target_type af2
 The model-predicted catalytic residues can be found here. Based on the protein amino acid length, we highlight the top 10% residues as model-predicted catalytic residues and illustrate the results with M-CSA dataset/UniProtKB database.
 * Red: Top 5%
 * Orange: Top 5%-10%
-* <img src="figures/ec-mcsa.png">: MCSA annotations
-* <img src="figures/ec-uniprot.png">: UniProt annotations
+* <img src="figures/ec-mcsa.png" width=20% height=20%>>: MCSA annotations
+* <img src="figures/ec-uniprot.png" width=20% height=20%>>: UniProt annotations
 
 ### Example PDB [2JCW_A](https://www.rcsb.org/structure/2jcw)
 
