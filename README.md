@@ -42,7 +42,6 @@ Download the target PDB structures (.pdb) and place it in folder 'data'
 ```
 python predict.py
 ```
-# Examples:
 To predict PDB structures under the folder 'Task 1'
 ```
 python .\predict.py --task_name "Task 1" --target_type pdb
